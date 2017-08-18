@@ -1,0 +1,10 @@
+sceneSetups:
+- path: Assets/cena1.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/menu.unity
+  isLoaded: 1
+  isActive: 1
+- path: Assets/cenaClassicMode.unity
+  isLoaded: 0
+  isActive: 0

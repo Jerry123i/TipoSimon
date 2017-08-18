@@ -11,10 +11,13 @@ public class CiclosData : ScriptableObject {
     public CondicaoInicial condInit;
     [SerializeField]
     public bool started;
-
-    void OnEnable()
-    {
-       
-    }
 	
+    CiclosData()
+    {
+        unidades = new List<UnidadeDeCiclo>();
+        unidades.Add(new UnidadeDeCiclo());
+        condInit = new CondicaoInicial(2);
+        started = true;
+    }
+
 }
