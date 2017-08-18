@@ -8,6 +8,7 @@ public class CiclosCustomEditor : Editor {
 
     public override void OnInspectorGUI()
     {
+        
         CiclosData data = (CiclosData)target;
 
         if(data.unidades == null)
@@ -22,7 +23,7 @@ public class CiclosCustomEditor : Editor {
         EditorGUILayout.LabelField("Condição Inicial",EditorStyles.boldLabel);
         GUILayout.BeginHorizontal("Box");
         EditorGUILayout.PrefixLabel("Numero Inicial de Botoes:");
-        data.condInit.nDeBotoes = int.Parse(GUILayout.TextField(data.condInit.nDeBotoes.ToString()));
+        data.condInit.nDeBotoes = EditorGUILayout.IntField(data.condInit.nDeBotoes);
         GUILayout.EndHorizontal();
                 
         EditorGUILayout.BeginVertical("Box");
@@ -64,7 +65,7 @@ public class CiclosCustomEditor : Editor {
             if (GUILayout.Button("X", EditorStyles.miniButtonRight))
             {
                 data.unidades.RemoveAt(i);
-                Undo.RecordObject(data, "Remove Effect");
+                //Undo.RecordObject(data, "Remove Effect");
             }
 
             GUILayout.EndHorizontal();
@@ -75,11 +76,11 @@ public class CiclosCustomEditor : Editor {
         if (GUILayout.Button("Add", EditorStyles.miniButtonRight))
         {
             data.unidades.Add(new UnidadeDeCiclo());
-            Undo.RecordObject(data, "Add Effect");
+           // Undo.RecordObject(data, "Add Effect");
         }
-
-
-
+        EditorUtility.SetDirty(target);
     }
+
+    
 
 }

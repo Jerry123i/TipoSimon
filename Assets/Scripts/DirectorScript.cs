@@ -16,6 +16,7 @@ public class DirectorScript : MonoBehaviour
     public List<ButtonData> secretButtons;
     [SerializeField]
     public List<CiclosData> ciclos;
+    public List<CiclosData> allCiclos;
     
     public List<GameObject> quatroBotoes, fitaBase, fitaEsperada;
     public GameObject endButton;
@@ -187,7 +188,46 @@ public class DirectorScript : MonoBehaviour
 
     void AdicionaNovaCor()
     {
-        fitaBase.Add(quatroBotoes[Random.Range(0, 4)]);
+        if(classicMode)
+        {
+            fitaBase.Add(quatroBotoes[Random.Range(0,quatroBotoes.Count)]);
+        }
+
+        else        
+        {
+                    List<GameObject> exlcluidos;
+        exlcluidos = new List<GameObject>();
+        int k = 0;
+
+        if(fitaBase.Count>=3)
+        {
+            if(fitaBase[fitaBase.Count-1] == fitaBase[fitaBase.Count-2])
+            {   
+                exlcluidos.Add(fitaBase[fitaBase.Count-1]);
+            }
+            else if(fitaBase[fitaBase.Count-2] == fitaBase[fitaBase.Count-3])
+            {
+                exlcluidos.Add(fitaBase[fitaBase.Count-2]);
+            }
+            else if(fitaBase[fitaBase.Count-1] == fitaBase[fitaBase.Count-3])
+            {
+                exlcluidos.Add(fitaBase[fitaBase.Count-1]);
+            }
+        }
+
+        if(exlcluidos.Count>0){
+            do{
+            k=Random.Range(0,4);
+            }while(quatroBotoes[k]==exlcluidos[0]);
+        }
+
+        else{
+            k=Random.Range(0,4);
+        }
+        fitaBase.Add(quatroBotoes[k]);
+
+        }
+
     }
 
     void AdicionaNovaRegraERemoveAMaisAntiga()
@@ -266,11 +306,8 @@ public class DirectorScript : MonoBehaviour
                     {
                         if(papeisTempList[j].lei.descricaoRegra==regras[i].descricaoRegra && !objetosBool[j])
                         {    
-                            Debug.Log("ping " + "i:" + i.ToString() + " j:" + papeisTempList[j].lei.descricaoRegra);                        
                             respostasBool[i] = true;
                             objetosBool[j] = true;
-                            //papeisTempList.RemoveAt(j);
-                            Debug.Log(objetosBool[j].ToString() + j.ToString() + " (Deve ser true)" ); //J dando sempre igual a 0
                         }
                     }
                 }
@@ -279,7 +316,6 @@ public class DirectorScript : MonoBehaviour
 
         for (int i =0; i<objetosRegras.Length; i++)
         {
-            Debug.Log(objetosBool[i].ToString() + " " + i.ToString());
             if(!objetosBool[i])
             {
                 papeisParaMudar.Add(objetosRegras[i]);
@@ -299,7 +335,6 @@ public class DirectorScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(regras[i].descricaoRegra);
                     papeisParaMudar[contador].lei = regras[i];
                     papeisParaMudar[contador].tagedParaMudar = true;
                     contador++;
@@ -309,13 +344,11 @@ public class DirectorScript : MonoBehaviour
 
         if (papeisParaMudar.Count > 0)
         {
-            Debug.Log("entrou no trocando regras");
             trocandoRegras = true;
         }
 
         else
         {
-            Debug.Log("ping lendo is true");
             lendo = true;
         }
         
@@ -332,13 +365,11 @@ public class DirectorScript : MonoBehaviour
         {
             for (int i =0; i< unidade.quantasRegras; i++)
             {
-                Debug.Log("Nova regra");
                 AdicionaNovaRegraERemoveAMaisAntiga();
             }
         }
         if (unidade.trocarRegra)
         {
-            Debug.Log("troca regra");
             List<Lei> trocasPossiveis;
             trocasPossiveis = new List<Lei>();
 
@@ -380,7 +411,6 @@ public class DirectorScript : MonoBehaviour
             }
             
             agulha++;
-            Debug.Log("OK");
             if (agulha == fitaEsperada.Count)
             {
                 pontos++;
@@ -391,7 +421,6 @@ public class DirectorScript : MonoBehaviour
 
                 if (classicMode)
                 {
-                    Debug.Log("classic");
                     ciclos[fase].unidades.Add(new UnidadeDeCiclo());
                     pontosHolder.AddAPoint();
                 }   
@@ -404,10 +433,11 @@ public class DirectorScript : MonoBehaviour
 
                         if(fase == ciclos.Count) //Adiciona um ciclo extra caso os pre escolhidos tenham acabado
                             {
-                                ciclos.Add(ciclos[fase-1]);
+                                ciclos.Add(allCiclos[Random.Range(0, allCiclos.Count)]);
                             }
 
                     Inicia(ciclos[fase].condInit);
+                    Debug.Log(ciclos[fase].name);
                 }
                 else
                 {
@@ -427,7 +457,6 @@ public class DirectorScript : MonoBehaviour
             }
             else
             {
-                Debug.Log(vidasLista[vidas]);
                 vidasLista[vidas].SetActive(false);
                 audioSource.clip = audioOhNo;
                 audioSource.Play();
@@ -664,6 +693,7 @@ public class DirectorScript : MonoBehaviour
 
 }
 
+[System.Serializable]
     public class Lei
     {
         public GameObject objetoUm;

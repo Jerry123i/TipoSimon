@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d7d297de8b8354bb8df193b0f2c29e, type: 3}
+  m_Name: TwoTradeEach 3
+  m_EditorClassIdentifier: 
+  unidades:
+  - novaCor: 1
+    novaRegra: 0
+    quantasRegras: 0
+    trocarRegra: 1
+    isOrientada: 0
+    regraEspecifica: 0
+  - novaCor: 1
+    novaRegra: 0
+    quantasRegras: 0
+    trocarRegra: 1
+    isOrientada: 0
+    regraEspecifica: 0
+  - novaCor: 1
+    novaRegra: 0
+    quantasRegras: 0
+    trocarRegra: 1
+    isOrientada: 0
+    regraEspecifica: 0
+  condInit:
+    nDeBotoes: 3
+    regrasIniciais: 030000000200000000000000
+    nDeRegrasIniciaisASeremSorteadas: 0
+  started: 1
