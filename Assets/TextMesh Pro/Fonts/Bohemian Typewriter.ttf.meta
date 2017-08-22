@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 88c4330cdc292784299f0c14a0911419
+timeCreated: 1503108894
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bohemian typewriter
+  fontNames:
+  - Bohemian typewriter
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

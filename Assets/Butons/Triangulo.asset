@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Triangulo
   m_EditorClassIdentifier: 
   foto: {fileID: 21300000, guid: 7f15fec3614020a498251a5bd17dcb42, type: 3}
-  nomeDeExibicao: os Triangulos
-  nomeComPronome: por Triangulos
+  nomeDeExibicao: "os Tri\xE2ngulos"
+  nomeComPronome: "por Tri\xE2ngulos"
   som: {fileID: 8300000, guid: 1fa8c674ad6d47f4c9110b22f736d854, type: 3}

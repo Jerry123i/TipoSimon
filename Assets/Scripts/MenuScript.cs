@@ -15,6 +15,11 @@ public class MenuScript : MonoBehaviour {
         
     void Update()
     {
+        if (Input.GetKeyDown("escape") && !(SceneManager.GetActiveScene().name == "menu"))
+        {
+            VoltarMenu();
+        }
+
         if (fadingIn)
         {
             clock += Time.deltaTime;

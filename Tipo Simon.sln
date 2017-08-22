@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tipo Simon.CSharp", "Tipo Simon.CSharp.csproj", "{280B91D8-C78B-D4D8-D004-0F724E4AD193}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tipo Simon.CSharp.Editor", "Tipo Simon.CSharp.Editor.csproj", "{5BE63178-6E1E-3C2B-E4A9-4CAF9622ED7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{280B91D8-C78B-D4D8-D004-0F724E4AD193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280B91D8-C78B-D4D8-D004-0F724E4AD193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280B91D8-C78B-D4D8-D004-0F724E4AD193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280B91D8-C78B-D4D8-D004-0F724E4AD193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BE63178-6E1E-3C2B-E4A9-4CAF9622ED7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE63178-6E1E-3C2B-E4A9-4CAF9622ED7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE63178-6E1E-3C2B-E4A9-4CAF9622ED7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE63178-6E1E-3C2B-E4A9-4CAF9622ED7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -107,9 +107,9 @@ public class DirectorScript : MonoBehaviour
         {
             if (objetosRegras[i].tagedParaMudar)
             {
-                objetosRegras[i].rTransform.pivot = new Vector2(objetosRegras[i].rTransform.pivot.x, objetosRegras[i].rTransform.pivot.y - 0.07f * inversorDeTroca);
+                objetosRegras[i].rTransform.pivot = new Vector2(objetosRegras[i].rTransform.pivot.x, objetosRegras[i].rTransform.pivot.y - 0.08f * inversorDeTroca);
 
-                if (objetosRegras[i].rTransform.pivot.y <= -3.0f && inversorDeTroca == 1)
+                if (objetosRegras[i].rTransform.pivot.y <= -4.5f && inversorDeTroca == 1)
                 {
                     for (int k = 0; k<objetosRegras.Length;k++)
                     {
@@ -449,8 +449,25 @@ public class DirectorScript : MonoBehaviour
             vidas--;
             if (vidas < 0)
             {
+                if (classicMode)
+                {
+                    endGameText.text = pontos.ToString() + " respostas corretas";
+                }
+                else
+                {
+                    if (fase == 1)
+                    {
+                        endGameText.text = pontos.ToString() + " respostas corretas \n" + fase.ToString() + " ciclo terminado";
+                    }
+
+                    else
+                    {
+                        endGameText.text = pontos.ToString() + " respostas corretas \n" + fase.ToString() + " ciclos terminados";
+                    }
+                }
+
                 fadeWall.gameObject.SetActive(true);
-                endGameText.text = pontos.ToString() + " respostas corretas \n" + fase.ToString() + " ciclos terminados";
+                
                 audioSource.clip = audioOhNo;
                 audioSource.Play();
                 endingGame = true;
